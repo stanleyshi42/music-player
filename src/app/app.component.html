@@ -2,22 +2,22 @@
   <div class="row">
     <h1>Music Player™️</h1>
   </div>
-  W
+
   <div class="row" *ngIf="currentTrack != null">
     <div class="col">
       <div class="lead">Now Playing: {{ currentTrack.title }}</div>
     </div>
   </div>
-  <div class="row mt-2 mb-4" *ngIf="currentTrack != null">
-    <div class="col">
-      <audio controls autoplay src="{{ currentTrack.preview }}"></audio>
+  <div class="row" *ngIf="currentTrack != null">
+    <div class="col-auto">
+      <audio class="border border-dark my-1"controls autoplay src="{{ currentTrack.preview }}"></audio>
     </div>
   </div>
 
   <div class="row">
     <!-- Make a card for each track -->
     <div class="col-auto" *ngFor="let track of tracks; let i = index">
-      <div class="card m-2" style="width: 14rem">
+      <div class="card my-2" style="width: 14rem">
         <img
           src="{{ track.album.cover }}"
           class="card-img-top"
