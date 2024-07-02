@@ -10,7 +10,12 @@
   </div>
   <div class="row" *ngIf="currentTrack != null">
     <div class="col-auto">
-      <audio class="border border-dark my-1"controls autoplay src="{{ currentTrack.preview }}"></audio>
+      <audio
+        class="border border-dark my-1"
+        controls
+        autoplay
+        src="{{ currentTrack.preview }}"
+      ></audio>
     </div>
   </div>
 

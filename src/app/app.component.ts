@@ -15,6 +15,7 @@ export class AppComponent {
     'https://api.deezer.com/track/2607856',
     'https://api.deezer.com/track/2603557',
     'https://api.deezer.com/track/3135554',
+    'https://api.deezer.com/track/538660022',
   ];
   tracks: any[] = [];
   currentTrack!: any;
