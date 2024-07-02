@@ -32,6 +32,7 @@ export class AppComponent {
     });
   }
 
+  // Set and play a new track
   setTrack(index: number) {
     let track = this.tracks[index];
     this.audioService.setAudio(track);

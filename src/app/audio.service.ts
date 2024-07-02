@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AudioService {
   currentAudio!: HTMLAudioElement;
-  currentTrack!: any;
+  currentTrack: any = '';
 
   setAudio(track: any) {
     // If audio already exists, pause it
