@@ -1,1 +1,28 @@
-<h1>Hello world</h1>
+<div class="container">
+  <div class="row">
+    <h1>Music Player</h1>
+  </div>
+  <div class="row">
+    <div class="col" *ngFor="let track of tracks">
+      <div class="card m-2" style="width: 14rem">
+        <img
+          src="{{ track.album.cover }}"
+          class="card-img-top"
+          id="track-img"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ track.title }}</h5>
+          <p class="card-text">
+            {{ track.release_date.substring(0, 4) }}
+            <br />
+            {{ track.artist.name }}
+            <br />
+            {{ track.duration | minute }}
+          </p>
+
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

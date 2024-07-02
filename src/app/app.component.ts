@@ -8,14 +8,22 @@ import { AudioService } from './audio.service';
 })
 export class AppComponent {
   title = 'music-player';
+  trackURIs = [
+    'https://api.deezer.com/track/3135556',
+    'https://api.deezer.com/track/12209331',
+    'https://api.deezer.com/track/9997018',
+    'https://api.deezer.com/track/117580376',
+  ];
   tracks: any[] = [];
 
   constructor(private service: AudioService) {}
 
   ngOnInit() {
-    this.service.getTrack().subscribe((data) => {
-      console.log(data);
-      this.tracks = data;
+    this.trackURIs.forEach((uri) => {
+      this.service.getTrack(uri).subscribe((data) => {
+        console.log(data);
+        this.tracks.push(data);
+      });
     });
   }
 }

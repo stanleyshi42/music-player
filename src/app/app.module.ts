@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Minute } from './minute.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Minute
   ],
   imports: [
     BrowserModule,

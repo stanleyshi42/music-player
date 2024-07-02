@@ -6,18 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AudioService {
-  private apiurl = 'https://api.deezer.com/track/3135556';
-  tracks: any[] = [];
-
   constructor(private http: HttpClient) {}
 
-  getAllTracks(): Observable<any>[] {
-    this.tracks.push(this.http.get(this.apiurl));
-    console.log(this.http.get(this.apiurl));
-    return this.tracks;
-  }
-
-  getTrack(): Observable<any> {
-    return this.http.get<any>(this.apiurl);
+  getTrack(uri: string): Observable<any> {
+    return this.http.get<any>(uri);
   }
 }
