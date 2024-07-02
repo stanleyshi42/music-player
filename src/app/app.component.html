@@ -25,6 +25,24 @@
         <button (click)="pauseTrack()" class="btn btn-primary">⏸️</button>
       </ng-template>
     </div>
+    <div class="col-auto">
+      <div
+        class="border border-dark p-2"
+        *ngIf="audioService.currentAudio != null"
+      >
+        <span class="p-1">{{
+          audioService.currentAudio.currentTime | number : "1.0-0"
+        }}</span>
+        <input
+          type="range"
+          max="audioService.currentAudio.duration"
+          value="audioService.currentAudio.currentTime"
+        />
+        <span class="p-1">{{
+          audioService.currentAudio.duration | number : "1.0-0"
+        }}</span>
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -35,6 +53,7 @@
           class="card-img-top"
           id="track-img"
         />
+
         <div class="card-body">
           <h5 class="card-title text-center">{{ track.title }}</h5>
           <p class="card-text">
