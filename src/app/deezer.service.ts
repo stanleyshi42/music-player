@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+// Get track data from Deezer API
 export class DeezerService {
   constructor(private http: HttpClient) {}
 
