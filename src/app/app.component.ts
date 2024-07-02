@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AudioService } from './audio.service';
 import { DeezerService } from './deezer.service';
 
 @Component({
@@ -18,11 +17,9 @@ export class AppComponent {
     'https://api.deezer.com/track/3135554',
   ];
   tracks: any[] = [];
+  currentTrack!: any;
 
-  constructor(
-    public deezerService: DeezerService,
-    public audioService: AudioService
-  ) {}
+  constructor(public deezerService: DeezerService) {}
 
   // Get all tracks from Deezer API
   ngOnInit() {
@@ -34,24 +31,7 @@ export class AppComponent {
     });
   }
 
-  // Set and play a new track
   setTrack(index: number) {
-    let track = this.tracks[index];
-
-    // Check if same track is already playing
-    if (track == this.audioService.currentTrack) {
-      return;
-    }
-    
-    this.audioService.setAudio(track);
-    this.audioService.playAudio();
-  }
-
-  pauseTrack() {
-    this.audioService.pauseAudio();
-  }
-
-  unpauseTrack() {
-    this.audioService.playAudio();
+    this.currentTrack = this.tracks[index];
   }
 }
