@@ -3,7 +3,19 @@
     <h1>Music Player</h1>
   </div>
   <div class="row">
-    <div class="col" *ngFor="let track of tracks">
+    <div>Now Playing: {{ audioService.currentTrack }}</div>
+  </div>
+  <div class="row">
+    <div class="col-auto">
+      <button (click)="pauseTrack()" class="btn btn-primary">⏸️</button>
+    </div>
+    <div class="col-auto">
+      <button (click)="unpauseTrack()" class="btn btn-primary">▶️</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col" *ngFor="let track of tracks; let i = index">
       <div class="card m-2" style="width: 14rem">
         <img
           src="{{ track.album.cover }}"
@@ -20,7 +32,9 @@
             {{ track.duration | minute }}
           </p>
 
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <button (click)="setTrack(i)" class="btn btn-primary">
+            Play Preview
+          </button>
         </div>
       </div>
     </div>

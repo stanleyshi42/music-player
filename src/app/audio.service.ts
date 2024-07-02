@@ -1,14 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AudioService {
-  constructor(private http: HttpClient) {}
+  currentAudio!: HTMLAudioElement;
+  currentTrack!: any;
 
-  getTrack(uri: string): Observable<any> {
-    return this.http.get<any>(uri);
+  setAudio(track: any) {
+    // If audio already exists, pause it
+    if (this.currentAudio != null) {
+      this.currentAudio.pause();
+    }
+
+    this.currentTrack = track;
+    this.currentAudio = new Audio(track.preview);
+    this.currentAudio.volume = 0.25;
+  }
+
+  playAudio() {
+    this.currentAudio.play();
+  }
+
+  pauseAudio() {
+    this.currentAudio.pause();
   }
 }
