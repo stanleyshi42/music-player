@@ -1,25 +1,9 @@
-<div class="container">
+<div class="container  pb-5">
   <div class="row">
     <h1>Music Player™️</h1>
   </div>
 
-  <div class="row" *ngIf="currentTrack != null">
-    <div class="col">
-      <div class="lead">Now Playing: {{ currentTrack.title }}</div>
-    </div>
-  </div>
-  <div class="row" *ngIf="currentTrack != null">
-    <div class="col-auto">
-      <audio
-        class="border border-dark my-1"
-        controls
-        autoplay
-        src="{{ currentTrack.preview }}"
-      ></audio>
-    </div>
-  </div>
-
-  <div class="row">
+  <div class="row my-5">
     <!-- Make a card for each track -->
     <div class="col-auto" *ngFor="let track of tracks; let i = index">
       <div class="card my-2" style="width: 14rem">
@@ -29,9 +13,9 @@
           id="track-img"
         />
 
-        <div class="card-body">
-          <h5 class="card-title text-center">{{ track.title }}</h5>
-          <p class="card-text">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ track.title }}</h5>
+          <p class="card-text text-start">
             {{ track.release_date.substring(0, 4) }}
             <br />
             {{ track.artist.name }}
@@ -46,4 +30,22 @@
       </div>
     </div>
   </div>
+
+  <!-- Media controls -->
+
 </div>
+<footer
+*ngIf="currentTrack != null"
+class="page-footer fixed-bottom bg-dark text-white mt-5"
+>
+<div id="controls" class="row">
+  <div class="lead ms-5">Now Playing: {{ currentTrack.title }}</div>
+
+  <audio
+    class="col-3 my-1 ms-5"
+    controls
+    autoplay
+    src="{{ currentTrack.preview }}"
+  ></audio>
+</div>
+</footer>
